@@ -83,4 +83,6 @@ The full list of languages with the Latin script has to be finished.
 
 ## Special characters
 
+- [Whitespace](whitespace.md)
+
 [ to be continued ]
