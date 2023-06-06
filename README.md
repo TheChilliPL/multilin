@@ -15,9 +15,10 @@ but I cannot promise a fast response. :sweat_smile:
 - [Table of contents](#table-of-contents)
 - [Support](#support)
   - [Languages](#languages)
-  - [By total speakers](#by-total-speakers)
-    - [Romanizations](#romanizations)
-  - [Full list](#full-list)
+    - [By total speakers](#by-total-speakers)
+      - [Romanizations](#romanizations)
+    - [Full list](#full-list)
+  - [Special characters](#special-characters)
 
 # Support
 
