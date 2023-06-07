@@ -97,7 +97,7 @@ The full list of languages with the Latin script has to be finished.
 # How to build and install
 
 Pre-built binaries are planned to be provided in the future in the
-[Releases][/TheChilliPL/multilin/releases] section.
+[Releases](/TheChilliPL/multilin/releases) section.
 
 Then, you'll be able to download it and install it by following the steps in the
 [Installation](#installation) section.
