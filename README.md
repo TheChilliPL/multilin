@@ -19,6 +19,13 @@ but I cannot promise a fast response. :sweat_smile:
       - [Romanizations](#romanizations)
     - [Full list](#full-list)
   - [Special characters](#special-characters)
+- [How to build and install](#how-to-build-and-install)
+  - [Prerequisites](#prerequisites)
+  - [Building](#building)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Uninstalling](#uninstalling)
+    - [Uninstalling the layout through `Programs and Features`](#uninstalling-the-layout-through-programs-and-features)
 
 # Support
 
@@ -86,3 +93,72 @@ The full list of languages with the Latin script has to be finished.
 - [Whitespace](whitespace.md)
 
 [ to be continued ]
+
+# How to build and install
+
+Pre-built binaries are planned to be provided in the future in the
+[Releases][/TheChilliPL/multilin/releases] section.
+
+Then, you'll be able to download it and install it by following the steps in the
+[Installation](#installation) section.
+
+## Prerequisites
+
+You need to have MSKLC 1.4 installed. You can download it from [here][MSKLC].  
+Tested only on Windows 11, but should work on Windows 10 and earlier as well.
+MSKLC is a quite archaic piece of software, but Microsoft doesn't seem to have
+any plans to update it, so it'll have to do.
+
+[MSKLC]: https://www.microsoft.com/en-us/download/details.aspx?id=102134
+
+## Building
+
+1. Clone the repository.
+2. Open the [`multilingual.klc`](multilingual.klc) file using MSKLC.
+3. Go to `Project`→`Build DLL and Setup Package`.
+4. Follow the on-screen instructions.
+5. It should eventually get exported to the directory showed in the dialog box.
+  By default, it's `Documents\multilin`.
+
+> :warning: **Warning:**
+> Building will fail if the layout is already installed. You need to uninstall
+> it first using [the provided steps](#uninstalling) to build it.
+
+## Installation
+
+1. Go to the directory with the binaries. It should contain `setup.exe`,
+  several `.msi` files, and directories with `.dll` files.
+2. The easiest method to install the layout is to run `setup.exe` and follow the
+  on-screen instructions. Alternatively, you can run the `.msi` file manually,
+  for your architecture. Manual installation with `.dll` files is possible, but
+  not recommended.
+3. After the installation is complete, you need to restart your computer for the
+  changes to take effect.
+
+> :warning: **Warning:**
+> Installation will fail if the layout is already installed. You need to uninstall
+> it first using [the provided steps](#uninstalling) to update it.
+
+## Usage
+
+1. Go to `Settings`→`Time & Language`→`Language & Region`.
+2. Under the `Language` section, click on the three dots next to the language
+  you want to add the layout to. Alternatively, you can click on `Add a
+  language` and add the language you want to add the layout to.
+3. Click on `Language options`.
+4. Under the `Keyboards` section, click on `Add a keyboard`.
+5. Look for `Multilingual` and click on it.
+6. Optionally, you can remove the default keyboard layout for the language by
+  clicking on the three dots and clicking on `Remove`.
+7. Restart your computer for the changes to take effect.
+8. You should now be able to switch to the layout by pressing `Win`+`Space` and
+  use it.
+
+## Uninstalling
+
+### Uninstalling the layout through `Programs and Features`
+
+1. Go to `Settings`→`Apps`→`Installed apps`.
+2. Look for `Multilingual` on the list or search for it using the search box.
+3. Click on the three dots next to it and click on `Uninstall`.
+4. Follow the on-screen instructions.
