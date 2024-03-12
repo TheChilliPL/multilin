@@ -15,7 +15,7 @@ jobs:
       - name: Install MSKLC
         run: |
           ./MSKLC/MSKLC.msi /quiet TARGETDIR="./MSKLC-Install"
-      - run: ls
+      - run: tree
       - name: Build layout to C
         run: |
           cp multilingual.klc Target
