@@ -9,7 +9,7 @@ jobs:
           curl -L -o MSKLC.exe https://download.microsoft.com/download/6/f/5/6f5ce43a-e892-4fd1-b9a6-1a0cbb64e6e2/MSKLC.exe
       - name: Unzip MSKLC
         run: |
-          MSKLC.exe -o . -y
+          ./MSKLC.exe -o . -y
           cd MSKLC
       - name: Install MSKLC
         run: |
