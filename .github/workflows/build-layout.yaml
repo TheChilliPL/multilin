@@ -10,7 +10,6 @@ jobs:
       - name: Unzip MSKLC
         run: |
           ./MSKLC.exe -o . -y
-          cd MSKLC
       - name: Install MSKLC
         run: |
-          MSKLC.msi /quiet
+          MSKLC/MSKLC.msi /quiet
