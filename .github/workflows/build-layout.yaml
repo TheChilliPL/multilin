@@ -4,6 +4,8 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Download MSKLC
         run: |
           curl -L -o MSKLC.exe https://download.microsoft.com/download/6/f/5/6f5ce43a-e892-4fd1-b9a6-1a0cbb64e6e2/MSKLC.exe
