@@ -14,11 +14,11 @@ jobs:
           ./MSKLC.exe -o . -y
       - name: Install MSKLC
         run: |
-          MSKLC/MSKLC.msi /quiet TARGETDIR="./MSKLC-Install"
+          ./MSKLC/MSKLC.msi /quiet TARGETDIR="./MSKLC-Install"
       - name: Build layout to C
         run: |
           cp multilingual.klc Target
-          MSKLC-Install/bin/i386/kbdutool.exe -wus Target/multilin.klc
+          ./MSKLC-Install/bin/i386/kbdutool.exe -wus Target/multilin.klc
           del Target/multilin.klc
       - name: Upload C source
         uses: actions/upload-artifact@v4
@@ -27,7 +27,7 @@ jobs:
           path: Target
       - name: Build layout DLL
         run: |
-          MSKLC-Install/bin/i386/kbdutool.exe -wu multilingual.klc
+          ./MSKLC-Install/bin/i386/kbdutool.exe -wu multilingual.klc
       - name: Upload layout DLL
         uses: actions/upload-artifact@v4
         with:
