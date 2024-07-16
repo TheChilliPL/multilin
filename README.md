@@ -8,7 +8,6 @@ I finally decided to make it public, and I'm planning to keep on using it as my 
 If you think there's something missing, please feel free to make an issue,
 but I cannot promise a fast response. :sweat_smile:
 
-
 # Table of contents
 
 - [Multilingual Keyboard Layout](#multilingual-keyboard-layout)
@@ -22,7 +21,11 @@ but I cannot promise a fast response. :sweat_smile:
 - [How to build and install](#how-to-build-and-install)
   - [Prerequisites](#prerequisites)
   - [Building](#building)
+    - [Building the layout using MSKLC](#building-the-layout-using-msklc)
+    - [Building the layout manually](#building-the-layout-manually)
   - [Installation](#installation)
+    - [Installation through the provided binaries](#installation-through-the-provided-binaries)
+    - [Installation manually](#installation-manually)
   - [Usage](#usage)
   - [Uninstalling](#uninstalling)
     - [Uninstalling the layout through `Programs and Features`](#uninstalling-the-layout-through-programs-and-features)
@@ -113,46 +116,81 @@ any plans to update it, so it'll have to do.
 
 ## Building
 
+### Building the layout using MSKLC
+
 1. Clone the repository.
 2. Open the [`multilingual.klc`](multilingual.klc) file using MSKLC.
 3. Go to `Project`→`Build DLL and Setup Package`.
 4. Follow the on-screen instructions.
 5. It should eventually get exported to the directory showed in the dialog box.
-  By default, it's `Documents\multilin`.
+   By default, it's `Documents\multilin`.
 
 > :warning: **Warning:**
 > Building will fail if the layout is already installed. You need to uninstall
 > it first using [the provided steps](#uninstalling) to build it.
 
+> :warning: **Warning:**
+> Building the layout using MSKLC will fail if the appdata directory is not set
+> to the default path. In this case, you have to build the layout manually
+> using the method below.
+
+### Building the layout manually
+
+MSKLC provides several CLI tools in its `/bin/i386` directory. To build the
+layout manually, you need to use the `kbdutool` tool.
+
+```cmd
+kbdutool.exe -wu <layout path>
+```
+
+where `-w` displays extended warnings, `-u` forces Unicode support.
+
+It builds the DLL for x86 by default (or if you pass the `-x` flag). You can override
+this behavior by using `-i` for IA64, `-m` for AMD64, `-o` for WOW64, or you can
+use `-s` to generate C source files without building them.
+
 ## Installation
 
+### Installation through the provided binaries
+
 1. Go to the directory with the binaries. It should contain `setup.exe`,
-  several `.msi` files, and directories with `.dll` files.
+   several `.msi` files, and directories with `.dll` files.
 2. The easiest method to install the layout is to run `setup.exe` and follow the
-  on-screen instructions. Alternatively, you can run the `.msi` file manually,
-  for your architecture. Manual installation with `.dll` files is possible, but
-  not recommended.
+   on-screen instructions. Alternatively, you can run the `.msi` file manually,
+   for your architecture. Manual installation with `.dll` files is possible, but
+   not recommended.
 3. After the installation is complete, you need to restart your computer for the
-  changes to take effect.
+   changes to take effect.
 
 > :warning: **Warning:**
 > Installation will fail if the layout is already installed. You need to uninstall
 > it first using [the provided steps](#uninstalling) to update it.
 
+> :warning: **Warning:**
+> Installation binaries provided by MSKLC seem to not work correctly if the appdata
+> directory is not set to the default path. In this case, you have to install the
+> layout manually using the `.dll` files.
+
+### Installation manually
+
+To install the layout manually, you need to copy the `.dll` files to the
+`C:\Windows\System32` directory and—if you haven't done it yet—add the layout
+to the registry key `HKLM\System\CurrentControlSet\Control\Keyboard Layouts`.
+
 ## Usage
 
 1. Go to `Settings`→`Time & Language`→`Language & Region`.
 2. Under the `Language` section, click on the three dots next to the language
-  you want to add the layout to. Alternatively, you can click on `Add a
-  language` and add the language you want to add the layout to.
+   you want to add the layout to. Alternatively, you can click on `Add a
+language` and add the language you want to add the layout to.
 3. Click on `Language options`.
 4. Under the `Keyboards` section, click on `Add a keyboard`.
 5. Look for `Multilingual` and click on it.
 6. Optionally, you can remove the default keyboard layout for the language by
-  clicking on the three dots and clicking on `Remove`.
+   clicking on the three dots and clicking on `Remove`.
 7. Restart your computer for the changes to take effect.
 8. You should now be able to switch to the layout by pressing `Win`+`Space` and
-  use it.
+   use it.
 
 ## Uninstalling
 
