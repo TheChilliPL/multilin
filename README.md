@@ -173,9 +173,27 @@ use `-s` to generate C source files without building them.
 
 ### Installation manually
 
-To install the layout manually, you need to copy the `.dll` files to the
-`C:\Windows\System32` directory and—if you haven't done it yet—add the layout
-to the registry key `HKLM\System\CurrentControlSet\Control\Keyboard Layouts`.
+1. Copy the `.dll` file appropriate for your architecture to the `C:\Windows\System32`
+   directory.
+2. Open the registry editor by pressing `Win`+`R` and typing `regedit`.
+3. Navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts`.
+4. Add a new 8-character key with a unique hexadecimal name. The first four characters
+   can be anything (MSKLC uses `a000`, then `a001`, etc.), and the last four
+   characters should correspond to the language ID (e.g., `0409` for English).
+5. Add a string value `Layout Text` with the name of the layout (e.g., `Multilingual`).
+6. Add a string value `Layout File` with the name of the `.dll` file (e.g., `multilin.dll`).
+   There's no need to specify the full path, as it has to be in the `C:\Windows\System32`.
+7. Add a string value `Layout Display Name` referring to a specific string in the `.dll`
+   file, like `@multilin.dll,-1000`, where `multilin.dll` is the name of the `.dll` file.
+8. Add a string value `Layout Id` with the layout ID. It has to be unique across
+   all layouts. On modern Windows installations, `00c0` seems to be working.
+9. Restart your PC in order to reload the system libraries.
+10. Go to `Settings`→`Time & Language`→`Language & Region` and add the layout.
+
+> :warning: **Warning:**
+> For some reason, too high layout IDs (e.g., `a000`) seems to cause the layout
+> to not be selectable and crash Explorer when trying to choose it.
+> It should be checked, whether there's a limit or if it must be consecutive.
 
 ## Usage
 
